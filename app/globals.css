@@ -1,26 +1,133 @@
 @import "tailwindcss";
 
+@config "../tailwind.config.ts";
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Slate & Cyan Light Mode (Default) */
+  --canvas: #F8FAFC;
+  --background: #F8FAFC;
+  --surface: #FFFFFF;
+  --surface-elevated: #FFFFFF;
+  --surface-recessed: #F1F5F9;
+  --border: #E2E8F0;
+  --primary: #008C94;
+  --primary-hover: #00757C;
+  --primary-accent: #008C94;
+  --secondary-accent: #D97706;
+  --gold: #D97706;
+  --text-primary: #0F172A;
+  --text-muted: #475569;
+  --text-mono: #008C94;
+  --foreground: #0F172A;
+  --muted-foreground: #475569;
+}
+
+.light {
+  --canvas: #F8FAFC;
+  --background: #F8FAFC;
+  --surface: #FFFFFF;
+  --surface-elevated: #FFFFFF;
+  --surface-recessed: #F1F5F9;
+  --border: #E2E8F0;
+  --primary: #008C94;
+  --primary-hover: #00757C;
+  --primary-accent: #008C94;
+  --secondary-accent: #D97706;
+  --gold: #D97706;
+  --text-primary: #0F172A;
+  --text-muted: #475569;
+  --text-mono: #008C94;
+  --foreground: #0F172A;
+  --muted-foreground: #475569;
+}
+
+.dark {
+  /* Custom Dark Slate + Electric Cyan & Gold */
+  --canvas: #1E242C;
+  --background: #1E242C;
+  --surface: #29313D;
+  --surface-elevated: #333E4D;
+  --surface-recessed: #181D23;
+  --border: rgba(255, 255, 255, 0.09);
+  --primary: #00B8C0;
+  --primary-hover: #00CBD4;
+  --primary-accent: #00B8C0;
+  --secondary-accent: #FFC83B;
+  --gold: #FFC83B;
+  --text-primary: #F1F5F9;
+  --text-muted: #94A3B8;
+  --text-mono: #00B8C0;
+  --foreground: #F1F5F9;
+  --muted-foreground: #94A3B8;
 }
 
 @theme inline {
+  --color-canvas: var(--canvas);
   --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-surface-recessed: var(--surface-recessed);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-accent: var(--primary-accent);
+  --color-secondary-accent: var(--secondary-accent);
+  --color-gold: var(--gold);
+  --color-text-primary: var(--text-primary);
+  --color-text-muted: var(--text-muted);
+  --color-text-mono: var(--text-mono);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --font-heading: var(--font-heading);
+  --font-sans: var(--font-inter);
+  --font-body: var(--font-inter);
+  --font-mono: var(--font-jetbrains-mono);
+
+  --radius-DEFAULT: 4px;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 4px;
+  --radius-xl: 4px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  border-color: var(--border);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--canvas);
+  color: var(--text-primary);
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Custom interactive button with 10° angled sweep hover from reference */
+.dark-btn-sweep {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: transform 0.2s ease-in-out;
+  border-radius: 4px;
+}
+.dark-btn-sweep::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--primary);
+  transform: translate(-100%) rotate(10deg);
+  transform-origin: top left;
+  transition: transform 0.25s ease-out;
+  z-index: -1;
+}
+.dark-btn-sweep:hover::after {
+  transform: translate(0);
+}
+.dark-btn-sweep:hover {
+  color: #FFFFFF !important;
+  transform: scale(1.03);
 }
