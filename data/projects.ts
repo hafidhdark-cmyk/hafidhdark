@@ -137,6 +137,38 @@ export const projects: Project[] = [
     image: "/projects/codesense.png",
   },
   {
+    id: "jollofplus",
+    slug: "jollofplus",
+    title: "JollofPlus",
+    kicker: "CLIENT ENGAGEMENT // FOOD COMMERCE & WHATSAPP DISPATCH",
+    flagshipHighlight:
+      "Abeokuta's premier firewood smoky jollof platform with multi-branch routing and direct automated WhatsApp checkout dispatch.",
+    category: "client",
+    categories: ["client", "fullstack"],
+    featured: true,
+    role: "Full-Stack Developer (Client Contract)",
+    year: "2026",
+    description:
+      "Client web application engineered for Abeokuta's premier smoky jollof food brand. Features responsive menu browsing, multi-branch order routing across Ori-Omi and Ita-Eko, and direct automated WhatsApp checkout dispatch.",
+    longDescription:
+      "Engineered a high-conversion food commerce and ordering platform for Abeokuta's premier smoky jollof restaurant. Implemented pocket-friendly meal pack calculators, 30-minute delivery routing for Ori-Omi and Ita-Eko branches, verified customer review showcases, and one-tap WhatsApp checkout payloads with zero drop-off.",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "WhatsApp Direct Dispatch", "Vercel"],
+    metrics: [
+      { label: "Delivery Dispatch", value: "30-Min Fast" },
+      { label: "Branch Coverage", value: "Ori-Omi & Ita-Eko" },
+      { label: "Customer Rating", value: "4.9 / 5.0" },
+    ],
+    highlights: [
+      "Direct automated WhatsApp checkout payload formulation with instant branch notification",
+      "Dynamic meal pack explorer and pocket-friendly pricing tiers",
+      "Seamless mobile-first ordering experience optimized for low-latency connections",
+    ],
+    links: {
+      live: "https://jollofplus.vercel.app/",
+    },
+    image: "/projects/jollofplus.jpg",
+  },
+  {
     id: "darul-hifdh",
     slug: "darul-hifdh",
     title: "Darul-Hifdh",

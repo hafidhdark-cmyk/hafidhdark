@@ -34,6 +34,11 @@ export const metadata: Metadata = {
   title: "DARK — Full-Stack Architect & Software Engineer",
   description:
     "Engineering robust, resilient digital systems, high-performance web platforms, and intelligent full-stack applications.",
+  icons: {
+    icon: "/icon.svg",
+    shortcut: "/icon.svg",
+    apple: "/icon.svg",
+  },
 };
 
 export default function RootLayout({

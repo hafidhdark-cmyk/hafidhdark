@@ -81,6 +81,19 @@ const PROJECTS: Project[] = [
     accentColor: "from-emerald-500/20 via-primary/10 to-transparent",
     image: "/projects/codesense.png",
   },
+  {
+    kicker: "04 // FOOD COMMERCE & WHATSAPP LOGISTICS",
+    title: "JollofPlus",
+    description:
+      "Client web application engineered for Abeokuta's premier smoky jollof food brand. Features responsive menu browsing, multi-branch order routing across Ori-Omi and Ita-Eko, and direct automated WhatsApp checkout dispatch.",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "WhatsApp Direct Dispatch", "Vercel"],
+    liveUrl: "https://jollofplus.vercel.app/",
+    badgeText: "Instant WhatsApp Checkout",
+    metric: "Sub-Minute Dispatch",
+    subMetric: "Multi-Branch Routing (Ori-Omi & Ita-Eko)",
+    accentColor: "from-rose-500/20 via-primary/10 to-transparent",
+    image: "/projects/jollofplus.jpg",
+  },
 ];
 
 export function ProjectsSection() {
