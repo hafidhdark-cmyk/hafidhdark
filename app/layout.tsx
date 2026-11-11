@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/Navbar";
 import { SideRails } from "@/components/SideRails";
+import { Analytics } from "@vercel/analytics/next";
 
 const montserrat = Montserrat({
   variable: "--font-heading",
@@ -63,6 +64,7 @@ export default function RootLayout({
           <SideRails />
           <main className="flex-1 w-full">{children}</main>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
