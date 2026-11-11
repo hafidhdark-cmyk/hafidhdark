@@ -4,6 +4,9 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/Navbar";
 import { SideRails } from "@/components/SideRails";
+import { ScrollProgress } from "@/components/ScrollProgress";
+import { BackToTop } from "@/components/BackToTop";
+import { CVProvider } from "@/components/CVProvider";
 
 const montserrat = Montserrat({
   variable: "--font-heading",
@@ -59,9 +62,13 @@ export default function RootLayout({
           enableSystem={false}
           disableTransitionOnChange
         >
-          <Navbar />
-          <SideRails />
-          <main className="flex-1 w-full">{children}</main>
+          <CVProvider>
+            <ScrollProgress />
+            <Navbar />
+            <SideRails />
+            <main className="flex-1 w-full">{children}</main>
+            <BackToTop />
+          </CVProvider>
         </ThemeProvider>
       </body>
     </html>

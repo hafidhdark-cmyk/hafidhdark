@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useTheme } from "next-themes";
 import { Sun, Moon, Menu, X, ArrowUpRight } from "lucide-react";
+import { CVTriggerButton } from "@/components/CVProvider";
 
 const NAV_ITEMS = [
   { num: "01.", label: "Home", href: "#home" },
@@ -87,14 +88,10 @@ export function Navbar() {
             )}
           </button>
 
-          {/* Download CV CTA */}
-          <a
-            href="/resume.pdf"
-            download
-            className="dark-btn-sweep border border-primary px-4 py-2 font-mono text-xs font-semibold text-primary transition duration-200 sm:px-5 sm:py-2.5"
-          >
+          {/* Download CV CTA (Triggers Prompt) */}
+          <CVTriggerButton className="dark-btn-sweep border border-primary px-4 py-2 font-mono text-xs font-semibold text-primary transition duration-200 sm:px-5 sm:py-2.5">
             Download CV
-          </a>
+          </CVTriggerButton>
 
           {/* Standard Clean Hamburger Trigger */}
           <button

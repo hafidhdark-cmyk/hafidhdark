@@ -8,6 +8,7 @@ import { ReviewsSection } from "@/components/ReviewsSection";
 import { CertificationsSection } from "@/components/CertificationsSection";
 import { ContactSection } from "@/components/ContactSection";
 import { ScrollReveal } from "@/components/ScrollReveal";
+import { CVTriggerButton } from "@/components/CVProvider";
 import {
   TypeScriptIcon,
   ReactIcon,
@@ -76,13 +77,9 @@ export default function HomePage() {
 
             {/* 3 Action Buttons with 10° angled sweep hover */}
             <div className="mt-8 flex flex-wrap items-center gap-3.5 sm:gap-4">
-              <a
-                href="/resume.pdf"
-                download
-                className="dark-btn-sweep border border-primary px-6 py-3 font-mono text-xs font-semibold text-primary transition duration-200"
-              >
-                Resume CV ↗
-              </a>
+              <CVTriggerButton className="dark-btn-sweep border border-primary px-6 py-3 font-mono text-xs font-semibold text-primary transition duration-200">
+                Download CV ↗
+              </CVTriggerButton>
 
               <Link
                 href="#my-work"
