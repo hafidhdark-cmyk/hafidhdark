@@ -7,6 +7,7 @@ import { SideRails } from "@/components/SideRails";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { BackToTop } from "@/components/BackToTop";
 import { CVProvider } from "@/components/CVProvider";
+import { Analytics } from "@vercel/analytics/next";
 
 const montserrat = Montserrat({
   variable: "--font-heading",
@@ -70,6 +71,7 @@ export default function RootLayout({
             <BackToTop />
           </CVProvider>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
