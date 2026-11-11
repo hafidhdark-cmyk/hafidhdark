@@ -18,14 +18,15 @@ export function ScrollReveal({
   children,
   animation = "pop",
   delay = 0,
-  duration = 650,
-  threshold = 0.12,
-  once = true,
+  duration = 550,
+  threshold = 0.1,
+  once = false, // Set to false so animations re-trigger continuously on every scroll pass
   className = "",
   style,
   ...props
 }: ScrollRevealProps) {
   const [isVisible, setIsVisible] = React.useState(false);
+  const [exitPosition, setExitPosition] = React.useState<"bottom" | "top">("bottom");
   const domRef = React.useRef<HTMLDivElement>(null);
 
   React.useEffect(() => {
@@ -38,6 +39,14 @@ export function ScrollReveal({
       return () => clearTimeout(timer);
     }
 
+    // Determine initial position relative to viewport
+    const rect = node.getBoundingClientRect();
+    if (rect.top < 0) {
+      setExitPosition("top");
+    } else if (rect.bottom > window.innerHeight) {
+      setExitPosition("bottom");
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -45,13 +54,19 @@ export function ScrollReveal({
           if (once) {
             observer.unobserve(node);
           }
-        } else if (!once) {
+        } else {
           setIsVisible(false);
+          // If the top of the element is above viewport, it exited through the top
+          if (entry.boundingClientRect.top < 0) {
+            setExitPosition("top");
+          } else {
+            setExitPosition("bottom");
+          }
         }
       },
       {
         threshold,
-        rootMargin: "0px 0px -40px 0px",
+        rootMargin: "-20px 0px -20px 0px",
       }
     );
 
@@ -62,21 +77,40 @@ export function ScrollReveal({
     };
   }, [threshold, once]);
 
-  // Compute transform styles based on animation type
+  // Compute transform styles based on animation type and scrolling direction
   const getTransform = () => {
     if (isVisible) return "none";
+
+    // Scrolling down: elements entering from below (or exited downwards)
+    if (exitPosition === "bottom") {
+      switch (animation) {
+        case "fade-up":
+          return "translateY(36px)";
+        case "slide-right":
+          return "translateX(-36px) translateY(16px)";
+        case "slide-left":
+          return "translateX(36px) translateY(16px)";
+        case "zoom":
+          return "scale(0.92)";
+        case "pop":
+        default:
+          return "translateY(30px) scale(0.95)";
+      }
+    }
+
+    // Scrolling up: elements entering from above (or exited upwards) - CONTRASTING MOVEMENT
     switch (animation) {
       case "fade-up":
-        return "translateY(32px)";
+        return "translateY(-36px)";
       case "slide-right":
-        return "translateX(-32px)";
+        return "translateX(36px) translateY(-16px)";
       case "slide-left":
-        return "translateX(32px)";
+        return "translateX(-36px) translateY(-16px)";
       case "zoom":
-        return "scale(0.92)";
+        return "scale(1.06)";
       case "pop":
       default:
-        return "translateY(28px) scale(0.95)";
+        return "translateY(-30px) scale(0.95)";
     }
   };
 
@@ -89,7 +123,7 @@ export function ScrollReveal({
         opacity: isVisible ? 1 : 0,
         transform: getTransform(),
         transition: `opacity ${duration}ms cubic-bezier(0.16, 1, 0.3, 1), transform ${duration}ms cubic-bezier(0.16, 1, 0.3, 1)`,
-        transitionDelay: `${delay}ms`,
+        transitionDelay: isVisible ? `${delay}ms` : "0ms",
         willChange: "opacity, transform",
       }}
       {...props}
