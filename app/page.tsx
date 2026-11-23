@@ -24,14 +24,14 @@ import {
 
 export default function HomePage() {
   return (
-    <div className="flex w-full flex-col px-6 sm:px-12 lg:px-0 lg:pl-[116px] lg:pr-12 xl:pl-[132px] xl:pr-16">
+    <div className="flex w-full max-w-full overflow-x-clip flex-col px-5 sm:px-12 lg:px-0 lg:pl-[116px] lg:pr-12 xl:pl-[132px] xl:pr-16">
       {/* ============================================================
           SECTION 01: HERO (#home)
           Vertically centered & brought down slightly on Desktop
           ============================================================ */}
       <section
         id="home"
-        className="relative flex min-h-[calc(100vh-80px)] flex-col justify-center py-12 sm:py-16 lg:pt-16 lg:pb-10"
+        className="relative flex min-h-[calc(100vh-80px)] flex-col justify-center py-12 sm:py-16 lg:pt-16 lg:pb-10 overflow-hidden"
       >
         {/* Organic Ambient Light / Warm Gold & Cyan Blob (centered on mobile, floating on desktop) */}
         <div
@@ -122,17 +122,17 @@ export default function HomePage() {
       {/* ============================================================
           SECTION 02: ABOUT ME (#my-self)
           ============================================================ */}
-      <section id="my-self" className="scroll-mt-28 py-20 lg:py-28">
+      <section id="my-self" className="scroll-mt-28 py-20 lg:py-28 overflow-x-clip max-w-full">
         {/* Section Title with Trailing Line */}
         <ScrollReveal animation="fade-up">
-          <div className="flex items-center gap-4 mb-12">
-            <div className="flex items-baseline gap-2.5 font-mono text-sm sm:text-base font-semibold text-primary">
+          <div className="flex items-center gap-3 sm:gap-4 mb-12 min-w-0 overflow-hidden">
+            <div className="flex items-baseline gap-2.5 font-mono text-sm sm:text-base font-semibold text-primary shrink-0">
               <span>02.</span>
               <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-foreground">
                 About Me
               </h2>
             </div>
-            <div className="h-[1px] flex-1 bg-border/80 dark:bg-zinc-700 max-w-xs sm:max-w-md lg:max-w-lg" />
+            <div className="h-[1px] flex-1 bg-border/80 dark:bg-zinc-700 max-w-xs sm:max-w-md lg:max-w-lg min-w-4" />
           </div>
         </ScrollReveal>
 
@@ -203,11 +203,11 @@ export default function HomePage() {
           </ScrollReveal>
 
           {/* Right Column: Profile Image Card with Offset Border */}
-          <ScrollReveal animation="slide-left" delay={150} className="flex justify-center lg:col-span-5 xl:col-span-4 lg:pt-2">
-            <div className="group relative w-full max-w-[280px] sm:max-w-[320px]">
+          <ScrollReveal animation="slide-left" delay={150} className="flex justify-center lg:col-span-5 xl:col-span-4 lg:pt-2 max-w-full">
+            <div className="group relative w-full max-w-[270px] sm:max-w-[320px]">
               {/* Offset Geometric Accent Border Frame */}
               <div
-                className="pointer-events-none absolute inset-0 translate-x-4 translate-y-4 rounded-[4px] border-2 border-primary transition-transform duration-300 ease-out group-hover:translate-x-2.5 group-hover:translate-y-2.5"
+                className="pointer-events-none absolute inset-0 translate-x-2.5 translate-y-2.5 sm:translate-x-4 sm:translate-y-4 rounded-[4px] border-2 border-primary transition-transform duration-300 ease-out group-hover:translate-x-1.5 group-hover:translate-y-1.5"
                 aria-hidden="true"
               />
 
@@ -248,17 +248,17 @@ export default function HomePage() {
       {/* ============================================================
           SECTION 03: WORK EXPERIENCE (#experience)
           ============================================================ */}
-      <section id="experience" className="scroll-mt-28 py-20 lg:py-28">
+      <section id="experience" className="scroll-mt-28 py-20 lg:py-28 overflow-x-clip max-w-full">
         {/* Section Title with Trailing Line */}
         <ScrollReveal animation="fade-up">
-          <div className="flex items-center gap-4 mb-12">
-            <div className="flex items-baseline gap-2.5 font-mono text-sm sm:text-base font-semibold text-primary">
+          <div className="flex items-center gap-3 sm:gap-4 mb-12 min-w-0 overflow-hidden">
+            <div className="flex items-baseline gap-2.5 font-mono text-sm sm:text-base font-semibold text-primary shrink-0">
               <span>03.</span>
               <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-foreground">
                 Where I&apos;ve Worked
               </h2>
             </div>
-            <div className="h-[1px] flex-1 bg-border/80 dark:bg-zinc-700 max-w-xs sm:max-w-md lg:max-w-lg" />
+            <div className="h-[1px] flex-1 bg-border/80 dark:bg-zinc-700 max-w-xs sm:max-w-md lg:max-w-lg min-w-4" />
           </div>
         </ScrollReveal>
 

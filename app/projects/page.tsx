@@ -63,7 +63,7 @@ export default function ProjectsPage() {
   }, [projectList, selectedCategory, searchQuery]);
 
   return (
-    <div className="flex w-full flex-col px-6 sm:px-12 lg:px-0 lg:pl-[116px] lg:pr-12 xl:pl-[132px] xl:pr-16 pt-28 pb-20">
+    <div className="flex w-full max-w-full overflow-x-clip flex-col px-5 sm:px-12 lg:px-0 lg:pl-[116px] lg:pr-12 xl:pl-[132px] xl:pr-16 pt-28 pb-20">
       {/* Top Breadcrumb Link */}
       <div className="mb-8">
         <Link

@@ -28,7 +28,7 @@ function XIcon({ className = "w-4 h-4" }: { className?: string }) {
 
 export function ContactSection() {
   return (
-    <section id="contact" className="scroll-mt-28 py-20 lg:py-28">
+    <section id="contact" className="scroll-mt-28 py-20 lg:py-28 overflow-x-clip max-w-full">
       {/* Container */}
       <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
         {/* Kicker & Big Headline */}

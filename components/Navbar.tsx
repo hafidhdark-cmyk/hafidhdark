@@ -88,10 +88,12 @@ export function Navbar() {
             )}
           </button>
 
-          {/* Download CV CTA (Triggers Prompt) */}
-          <CVTriggerButton className="dark-btn-sweep border border-primary px-4 py-2 font-mono text-xs font-semibold text-primary transition duration-200 sm:px-5 sm:py-2.5">
-            Download CV
-          </CVTriggerButton>
+          {/* Download CV CTA (Visible on sm+ screens to preserve mobile header space) */}
+          <div className="hidden sm:block">
+            <CVTriggerButton className="dark-btn-sweep border border-primary px-4 py-2 font-mono text-xs font-semibold text-primary transition duration-200 sm:px-5 sm:py-2.5">
+              Download CV
+            </CVTriggerButton>
+          </div>
 
           {/* Standard Clean Hamburger Trigger */}
           <button
@@ -99,7 +101,7 @@ export function Navbar() {
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle navigation menu"
             aria-expanded={menuOpen}
-            className="flex h-10 w-10 items-center justify-center rounded-[4px] border border-border bg-surface text-foreground transition duration-200 hover:border-primary hover:text-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary cursor-pointer"
+            className="flex h-10 w-10 items-center justify-center rounded-[4px] border border-border bg-surface text-foreground transition duration-200 hover:border-primary hover:text-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary cursor-pointer shrink-0"
           >
             {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -108,10 +110,11 @@ export function Navbar() {
 
       {/* Normal Hamburger Off-Canvas Drawer */}
       <div
-        className={`fixed inset-0 z-50 transition-all duration-300 ${menuOpen
-          ? "pointer-events-auto opacity-100"
-          : "pointer-events-none opacity-0"
-          }`}
+        className={`fixed inset-0 z-50 overflow-hidden transition-all duration-300 ${
+          menuOpen
+            ? "pointer-events-auto opacity-100 visible"
+            : "pointer-events-none opacity-0 invisible"
+        }`}
       >
         {/* Backdrop */}
         <div
@@ -159,6 +162,13 @@ export function Navbar() {
                 <ArrowUpRight className="h-4 w-4 opacity-0 transition-all duration-150 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:opacity-100 text-primary" />
               </Link>
             ))}
+          </div>
+
+          {/* Mobile Drawer CV Download CTA */}
+          <div className="py-2">
+            <CVTriggerButton className="dark-btn-sweep flex w-full items-center justify-center border border-primary bg-primary/10 py-3 font-mono text-xs font-semibold text-primary transition duration-200 hover:bg-primary hover:text-white">
+              Download CV ↗
+            </CVTriggerButton>
           </div>
 
           {/* Drawer Footer: Direct Contact & Transmission */}

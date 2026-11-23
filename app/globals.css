@@ -95,12 +95,17 @@
   border-color: var(--border);
 }
 
+html,
+body {
+  max-width: 100vw;
+  overflow-x: clip;
+}
+
 body {
   background-color: var(--canvas);
   color: var(--text-primary);
   font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
   min-height: 100vh;
-  overflow-x: hidden;
 }
 
 /* Custom interactive button with 10° angled sweep hover from reference */

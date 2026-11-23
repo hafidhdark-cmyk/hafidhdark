@@ -98,17 +98,17 @@ const PROJECTS: Project[] = [
 
 export function ProjectsSection() {
   return (
-    <section id="my-work" className="scroll-mt-28 py-20 lg:py-28">
+    <section id="my-work" className="scroll-mt-28 py-20 lg:py-28 overflow-x-clip max-w-full">
       {/* Section Title with Trailing Line */}
       <ScrollReveal animation="fade-up">
-        <div className="flex items-center gap-4 mb-16">
-          <div className="flex items-baseline gap-2.5 font-mono text-sm sm:text-base font-semibold text-primary">
+        <div className="flex items-center gap-3 sm:gap-4 mb-16 min-w-0 overflow-hidden">
+          <div className="flex items-baseline gap-2.5 font-mono text-sm sm:text-base font-semibold text-primary shrink-0">
             <span>04.</span>
             <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-foreground">
               Things I&apos;ve Built
             </h2>
           </div>
-          <div className="h-[1px] flex-1 bg-border/80 dark:bg-zinc-700 max-w-xs sm:max-w-md lg:max-w-lg" />
+          <div className="h-[1px] flex-1 bg-border/80 dark:bg-zinc-700 max-w-xs sm:max-w-md lg:max-w-lg min-w-4" />
         </div>
       </ScrollReveal>
 
@@ -293,13 +293,15 @@ export function ProjectsSection() {
       </div>
 
       {/* View All Projects CTA */}
-      <ScrollReveal animation="fade-up" delay={150} className="mt-20 flex justify-center">
+      <ScrollReveal animation="fade-up" delay={150} className="mt-20 flex justify-center w-full px-2">
         <Link
           href="/projects"
-          className="dark-btn-sweep border border-primary bg-surface px-8 py-3.5 font-mono text-xs font-semibold text-primary transition duration-200 hover:border-primary shadow-[0_0_20px_rgba(0,184,192,0.15)] flex items-center gap-2.5"
+          className="dark-btn-sweep border border-primary bg-surface px-4 py-3 sm:px-8 sm:py-3.5 font-mono text-xs font-semibold text-primary transition duration-200 hover:border-primary shadow-[0_0_20px_rgba(0,184,192,0.15)] flex items-center justify-center gap-2 text-center max-w-full"
         >
-          <span>View Full Project Archive ({projects.length} Engineered Builds)</span>
-          <ArrowUpRight className="h-4 w-4" />
+          <span className="truncate sm:whitespace-normal">
+            View Full Project Archive ({projects.length} Engineered Builds)
+          </span>
+          <ArrowUpRight className="h-4 w-4 shrink-0" />
         </Link>
       </ScrollReveal>
     </section>

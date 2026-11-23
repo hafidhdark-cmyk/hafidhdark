@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Montserrat, Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -34,6 +34,13 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
+
 export const metadata: Metadata = {
   title: "DARK — Full-Stack Architect & Software Engineer",
   description:
@@ -54,9 +61,9 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${montserrat.variable} ${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
+      className={`${montserrat.variable} ${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} h-full antialiased overflow-x-clip max-w-full`}
     >
-      <body className="flex min-h-screen flex-col bg-canvas text-foreground selection:bg-primary/20 selection:text-primary">
+      <body className="flex min-h-screen flex-col bg-canvas text-foreground selection:bg-primary/20 selection:text-primary overflow-x-clip max-w-full">
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
@@ -67,7 +74,7 @@ export default function RootLayout({
             <ScrollProgress />
             <Navbar />
             <SideRails />
-            <main className="flex-1 w-full">{children}</main>
+            <main className="flex-1 w-full max-w-full overflow-x-clip">{children}</main>
             <BackToTop />
           </CVProvider>
         </ThemeProvider>

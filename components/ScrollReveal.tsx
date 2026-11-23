@@ -117,7 +117,7 @@ export function ScrollReveal({
   return (
     <div
       ref={domRef}
-      className={className}
+      className={`max-w-full ${className}`}
       style={{
         ...style,
         opacity: isVisible ? 1 : 0,

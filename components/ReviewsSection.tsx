@@ -5,17 +5,17 @@ import { ScrollReveal } from "@/components/ScrollReveal";
 
 export function ReviewsSection() {
   return (
-    <section id="reviews" className="scroll-mt-28 py-20 lg:py-28">
+    <section id="reviews" className="scroll-mt-28 py-20 lg:py-28 overflow-x-clip max-w-full">
       {/* Section Title with Trailing Line */}
       <ScrollReveal animation="fade-up">
-        <div className="flex items-center gap-4 mb-14">
-          <div className="flex items-baseline gap-2.5 font-mono text-sm sm:text-base font-semibold text-primary">
+        <div className="flex items-center gap-3 sm:gap-4 mb-14 min-w-0 overflow-hidden">
+          <div className="flex items-baseline gap-2.5 font-mono text-sm sm:text-base font-semibold text-primary shrink-0">
             <span>05.</span>
             <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-foreground">
               Client Feedback &amp; Delivery Proof
             </h2>
           </div>
-          <div className="h-[1px] flex-1 bg-border/80 dark:bg-zinc-700 max-w-xs sm:max-w-md lg:max-w-lg" />
+          <div className="h-[1px] flex-1 bg-border/80 dark:bg-zinc-700 max-w-xs sm:max-w-md lg:max-w-lg min-w-4" />
         </div>
       </ScrollReveal>
 

@@ -62,7 +62,7 @@ export function ExperienceTabs() {
   const current = EXPERIENCES[activeTab];
 
   return (
-    <div className="flex flex-col md:flex-row items-start gap-8 lg:gap-12 w-full max-w-4xl">
+    <div className="flex flex-col md:flex-row items-start gap-8 lg:gap-12 w-full max-w-full lg:max-w-4xl">
       {/* Left Column: Vertical Company Tabs with Sliding Accent Bar */}
       <div className="relative flex md:flex-col overflow-x-auto md:overflow-visible w-full md:w-56 shrink-0 border-b md:border-b-0 border-border/60">
         {/* Desktop Vertical Track Line */}
@@ -77,17 +77,6 @@ export function ExperienceTabs() {
           />
         </div>
 
-        {/* Mobile Horizontal Track Line */}
-        <div className="md:hidden absolute left-0 right-0 bottom-0 h-[2px] bg-border/60 dark:bg-zinc-800">
-          <div
-            className="h-full bg-primary transition-transform duration-300 ease-out"
-            style={{
-              width: `${100 / EXPERIENCES.length}%`,
-              transform: `translateX(${activeTab * 100}%)`,
-            }}
-          />
-        </div>
-
         {/* Tab Buttons */}
         {EXPERIENCES.map((exp, idx) => {
           const isSelected = activeTab === idx;
@@ -96,9 +85,9 @@ export function ExperienceTabs() {
               key={exp.company}
               type="button"
               onClick={() => setActiveTab(idx)}
-              className={`flex items-center text-left h-11 px-4 md:pl-6 md:pr-4 font-mono text-xs tracking-wide transition-all duration-200 whitespace-nowrap rounded-t-[4px] md:rounded-t-none md:rounded-r-[4px] ${isSelected
-                ? "text-primary font-semibold bg-primary/10 md:bg-primary/5"
-                : "text-muted-foreground hover:text-foreground hover:bg-surface/50"
+              className={`flex items-center text-left h-11 px-4 md:pl-6 md:pr-4 font-mono text-xs tracking-wide transition-all duration-200 whitespace-nowrap rounded-t-[4px] md:rounded-t-none md:rounded-r-[4px] border-b-2 md:border-b-0 ${isSelected
+                ? "text-primary font-semibold bg-primary/10 md:bg-primary/5 border-primary"
+                : "text-muted-foreground hover:text-foreground hover:bg-surface/50 border-transparent"
                 }`}
               aria-selected={isSelected}
               role="tab"

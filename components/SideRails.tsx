@@ -139,9 +139,9 @@ export function SideRails() {
       {/* ============================================================
           MOBILE FLOATING DOCK (visible below lg, exactly like Image 1)
           ============================================================ */}
-      <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-40 flex lg:hidden items-center justify-between w-[92%] max-w-[395px] px-4 py-2.5 rounded-full bg-zinc-900/95 dark:bg-black/95 text-white backdrop-blur-md shadow-[0_8px_30px_rgba(0,0,0,0.35)] border border-white/10">
+      <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-40 flex lg:hidden items-center justify-between w-[92%] max-w-[395px] px-3.5 sm:px-4 py-2.5 rounded-full bg-zinc-900/95 dark:bg-black/95 text-white backdrop-blur-md shadow-[0_8px_30px_rgba(0,0,0,0.35)] border border-white/10">
         {/* Social Icons on Left */}
-        <div className="flex items-center gap-3.5">
+        <div className="flex items-center gap-2.5 sm:gap-3.5 shrink-0">
           {SOCIAL_LINKS.map(({ name, href, icon: Icon }) => (
             <a
               key={name}
@@ -157,12 +157,12 @@ export function SideRails() {
         </div>
 
         {/* Vertical Divider */}
-        <div className="h-4 w-[1px] bg-zinc-700 mx-1" aria-hidden="true" />
+        <div className="h-4 w-[1px] bg-zinc-700 mx-1 shrink-0" aria-hidden="true" />
 
         {/* Email on Right */}
         <a
           href="mailto:hafidhdark@gmail.com"
-          className="font-mono text-[11px] sm:text-xs text-zinc-300 hover:text-primary transition-colors tracking-tight whitespace-nowrap"
+          className="font-mono text-[10px] sm:text-xs text-zinc-300 hover:text-primary transition-colors tracking-tight whitespace-nowrap truncate shrink-0"
         >
           hafidhdark@gmail.com
         </a>
